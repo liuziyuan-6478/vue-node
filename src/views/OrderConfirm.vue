@@ -188,10 +188,14 @@
             }).then((response)=>{
               console.log(response);
                 let res = response.data;
+                console.log(res);
                 if(res.status=="0"){
-                    this.$router.push({
-                        path:'/payConfirm?orderId='+res.result.orderId + '&orderTotal=' + this.orderTotal
-                    })
+                    // this.$router.push({
+                    //     path:'/payConfirm?orderId='+res.result.orderId + '&orderTotal=' + this.orderTotal
+                    // // })
+                    const {redirectPath} = res.result;
+                    location.href = redirectPath;
+                    
                 }
             })
         }

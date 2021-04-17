@@ -8,7 +8,7 @@ var ejs = require('ejs')
 var index = require('./routes/index');
 var users = require('./routes/users');
 var goods = require('./routes/goods');
-var adminUser = require('./routes/adminUser')
+var adminUser = require('./routes/adminUser');
 
 
 var app = express();

@@ -31,7 +31,7 @@ module.exports = {
     // 不代理就存在跨域问题
     proxyTable: {
       '/goods':{
-          target:'http://localhost:2000'
+        target:'http://localhost:2000'
       },
       '/goods/*':{
         target:'http://localhost:2000'
