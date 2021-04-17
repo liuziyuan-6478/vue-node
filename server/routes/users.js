@@ -3,6 +3,7 @@ var router = express.Router();
 require('./../util/util')
 var User = require('./../models/user');
 var Goods = require('../models/goods');
+const pay = require('../util/pay');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -453,7 +454,7 @@ router.post("/payMent", function (req,res,next) {
   var userName = req.cookies.userName,
     username = req.body.userName,
     orderTotal = req.body.orderTotal;
-
+  
   User.findOne({userName:userName}, function (err,doc) {
      if(err){
         res.json({
@@ -505,19 +506,30 @@ router.post("/payMent", function (req,res,next) {
               result:''
             });
           }else{
-            res.json({
-              status:"0",
-              msg:'',
-              result:{
-                orderId:order.orderId,
-                orderTotal:order.orderTotal
-              }
-            });
+            pay(orderId, orderTotal).then(redirectPath => {
+              res.json({
+                status:"0",
+                msg:'',
+                result:{
+                  orderId:order.orderId,
+                  orderTotal:order.orderTotal,
+                  redirectPath
+                }
+              });
+            })
           }
        });
      }
   })
 });
+
+// router.get("/returnUrl", function(req, res, next) {
+//   console.log(req.query.orderId);
+// })
+
+router.post("/pay/notify", function(req, resp, next) {
+  console.log(req.body);
+})
 
 //根据用户名查询所有订单信息
 router.post("/getOrderList",function(req,res,next){

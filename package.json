@@ -11,6 +11,7 @@
     "es6": "babel demo/user.js -o demo/user-com.js"
   },
   "dependencies": {
+    "alipay-sdk": "^3.1.6",
     "axios": "^0.16.1",
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
@@ -76,4 +77,3 @@
     "not ie <= 8"
   ]
 }
-
