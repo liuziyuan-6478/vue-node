@@ -42,21 +42,29 @@ router.post('/Login', function(req,res,next) {
             })
             next()
         }else{
-            const {userPwd: dbPwd} = admin;
+            const {userPwd: dbSavedPwd} = admin;
             res.cookie("userName", userName,{
                 maxAge:1000*60*60
             });
 
             let token = randomString(20);
             console.log(req.cookies.userName);
-            res.send({
-                status:"10001",
-                mes:'查询成功',
-                result:{
-                    userName: userName,
-                    token:token
-                }
-            });  
+            if(dbSavedPwd === userPwd) {
+                res.send({
+                    status:"10001",
+                    mes:'查询成功',
+                    result:{
+                        userName: userName,
+                        token:token
+                    }
+                });  
+            }else {
+                res.send({
+                    status: '10003',
+                    msg: "密码错误"
+                })
+            }
+            
         }
     })
     
