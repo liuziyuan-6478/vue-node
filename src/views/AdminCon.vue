@@ -1,4 +1,4 @@
-<!-- 购物车页面 -->
+<!-- 管理员页面 -->
 
 <template>
   <div>
@@ -24,7 +24,7 @@
         <template slot="title"><i class="el-icon-setting"></i>系统设置</template>
         <el-menu-item-group>
           <el-menu-item index="/edit">修改密码</el-menu-item>
-          <el-menu-item index="1-3">系统测试</el-menu-item>
+          <!-- <el-menu-item index="1-3">系统测试</el-menu-item> -->
         </el-menu-item-group>
       </el-submenu>
     </el-menu>

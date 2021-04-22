@@ -40,7 +40,7 @@ router.post('/Login', function(req,res,next) {
                 }
                       let token = randomString(20);
                   console.log(req.cookies.userName);
-                res.send({
+                res.json({
                     status:"10001",
                     mes:'查询成功',
                     result:{
@@ -49,7 +49,7 @@ router.post('/Login', function(req,res,next) {
                     }
                 });  
             }else{
-                res.send({
+                res.json({
                     status:"10002",
                     mes:'查询失败'
                 });

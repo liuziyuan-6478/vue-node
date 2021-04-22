@@ -12,7 +12,7 @@
           <ul>
             <li><span>选择地址</span></li>
             <li><span>查看订单</span></li>
-            <li><span>付款方式</span></li>
+            <li><span>付款</span></li>
             <li class="cur"><span>订单确认</span></li>
           </ul>
         </div>
