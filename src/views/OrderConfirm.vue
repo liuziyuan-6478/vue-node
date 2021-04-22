@@ -40,7 +40,7 @@
           <ul>
             <li><span>选择地址</span></li>
             <li class="cur"><span>查看订单</span></li>
-            <li><span>付款方式</span></li>
+            <li><span>付款</span></li>
             <li><span>订单确认</span></li>
           </ul>
         </div>
@@ -186,7 +186,6 @@
               userName:username,
               orderTotal:this.orderTotal
             }).then((response)=>{
-              console.log(response);
                 let res = response.data;
                 console.log(res);
                 if(res.status=="0"){

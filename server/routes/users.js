@@ -507,15 +507,21 @@ router.post("/payMent", function (req,res,next) {
             });
           }else{
             pay(orderId, orderTotal).then(redirectPath => {
-              res.json({
-                status:"0",
-                msg:'',
-                result:{
-                  orderId:order.orderId,
-                  orderTotal:order.orderTotal,
-                  redirectPath
-                }
-              });
+              doc.cartList = []
+              doc.save(function(err) {
+                  if(err) console.log(err)
+                  res.json({
+                    status:"0",
+                    msg:'',
+                    result:{
+                      orderId:order.orderId,
+                      orderTotal:order.orderTotal,
+                      redirectPath
+                    }
+                  });
+                
+              })
+              
             })
           }
        });

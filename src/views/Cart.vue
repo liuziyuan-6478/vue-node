@@ -153,46 +153,6 @@
   </div>
 </template>
 
-<style scoped>
-  .input-sub,.input-add{
-    min-width: 40px;
-    height: 100%;
-    border: 0;
-    color: #605F5F;
-    text-align: center;
-    font-size: 16px;
-    overflow: hidden;
-    display: inline-block;
-    background: #f0f0f0;
-  }
-  .item-quantity .select-self-area{
-    background:none;
-    border: 1px solid #f0f0f0;
-  }
-  .item-quantity .select-self-area .select-ipt{
-    display: inline-block;
-    padding:0 3px;
-    width: 30px;
-    min-width: 30px;
-    text-align: center;
-  }
-  .cartContent{
-    background: #ffffff;
-    height: 500px;
-  }
-  .desc{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin-left: -450px;
-  }
-  .desc1{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin-left: 10px;
-  }
-  .dec1 a{
-    text-decoration: underline;
-  }
-</style>
-
 <script>
 import NavHeader from './../components/NavHeader'
 import NavFooter from './../components/NavFooter'
@@ -317,3 +277,44 @@ export default{
     }
 }
 </script>
+
+
+<style scoped>
+  .input-sub,.input-add{
+    min-width: 40px;
+    height: 100%;
+    border: 0;
+    color: #605F5F;
+    text-align: center;
+    font-size: 16px;
+    overflow: hidden;
+    display: inline-block;
+    background: #f0f0f0;
+  }
+  .item-quantity .select-self-area{
+    background:none;
+    border: 1px solid #f0f0f0;
+  }
+  .item-quantity .select-self-area .select-ipt{
+    display: inline-block;
+    padding:0 3px;
+    width: 30px;
+    min-width: 30px;
+    text-align: center;
+  }
+  .cartContent{
+    background: #ffffff;
+    height: 500px;
+  }
+  .desc{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: -450px;
+  }
+  .desc1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 10px;
+  }
+  .dec1 a{
+    text-decoration: underline;
+  }
+</style>

@@ -12,7 +12,7 @@ var userSchema = new mongoose.Schema({
       "salePrice":String,
       "productImage":String,
       "checked":String,
-      "productNum":String
+      "productNum":String,
     }
   ],
   "addressList":[
@@ -29,4 +29,4 @@ var userSchema = new mongoose.Schema({
   usePushEach: true
   });
 
-module.exports = mongoose.model("User",userSchema,'User');
+module.exports = mongoose.model("User",userSchema);

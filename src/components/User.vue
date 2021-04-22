@@ -83,7 +83,7 @@ import axios from 'axios'
             this.dialogformVisible = true;
             this.form = Object.assign({}, row);
         },
-        z(index, row){
+        handleDelete(index, row){
               var user = this.tableData[index].userName;
               console.log(user);
             

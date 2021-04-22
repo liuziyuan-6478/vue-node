@@ -5,6 +5,19 @@ var User = require('./../models/user');
 var Goods = require('../models/goods');
 var Admin = require('../models/admin');
 
+function randomString(len) {
+    len = len || 32;
+    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+    var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz0123456789';    
+    var maxLen = $chars.length;
+    var str = '';
+    for (var i = 0; i < len; i++) {
+        str += $chars.charAt(Math.floor(Math.random() * maxLen));
+    }
+    return str;
+}
+
+
 //管理员登录
 router.post('/Login', function(req,res,next) {
     const {userName, userPwd} = req.body
@@ -12,58 +25,41 @@ router.post('/Login', function(req,res,next) {
         userName:userName,
         // userPwd:userPwd,
     }
-    console.log(param)
-    // Admin.findOne(param, function(err, admin){
-        
-    // })
-    Admin.find(function(f, admin) {
-        console.log(f, admin)
+
+    Admin.findOne(param, function(err, admin) {
+        if(err) {
+            res.json({
+                status: '10000',
+                msg: err.message
+            })
+            return
+        }
+
+        if(!admin) {
+            res.send({
+                status: '10002',
+                msg: "无用户"
+            })
+            next()
+        }else{
+            const {userPwd: dbPwd} = admin;
+            res.cookie("userName", userName,{
+                maxAge:1000*60*60
+            });
+
+            let token = randomString(20);
+            console.log(req.cookies.userName);
+            res.send({
+                status:"10001",
+                mes:'查询成功',
+                result:{
+                    userName: userName,
+                    token:token
+                }
+            });  
+        }
     })
-    // Admin.findOne(param, function(err,doc) {
-    //     console.log(e)
-        // console.log('err', err)
-        // if(err){
-        //     res.json({
-        //         status:"10000",
-        //         mes:'发生错误'
-        //     });
-        // }else{
-            // console.log('doc', doc)
-            // doc = {};
-            // doc.userName = param.userName;
-            // if(doc){
-            //     res.cookie("userName",doc.userName,{
-            //         maxAge:1000*60*60
-            //       });
-            //      function randomString(len) {
-            //         len = len || 32;
-            //         /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
-            //         var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz0123456789';    
-            //         var maxLen = $chars.length;
-            //         var str = '';
-            //         for (var i = 0; i < len; i++) {
-            //             str += $chars.charAt(Math.floor(Math.random() * maxLen));
-            //         }
-            //         return str;
-            //     }
-            //           let token = randomString(20);
-            //       console.log(req.cookies.userName);
-            //     res.send({
-            //         status:"10001",
-            //         mes:'查询成功',
-            //         result:{
-            //             userName:doc.userName,
-            //             token:token
-            //         }
-            //     });  
-            // }else{
-            //     res.send({
-            //         status:"10002",
-            //         mes:'查询失败'
-            //     });
-            // }
-        // }
-    // })
+    
 });
 
 router.post("/Logout", function (req,res,next) {

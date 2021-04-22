@@ -14,4 +14,4 @@ var produtSchema = new Schema({
   usePushEach: true
   });
 
-module.exports = mongoose.model('Good',produtSchema, 'Good');
+module.exports = mongoose.model('Good',produtSchema);
