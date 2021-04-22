@@ -103,14 +103,7 @@
                 <span>配送费:</span>
                 <span>{{shipping|currency('￥')}}</span>
               </li>
-              <li>
-                <span>折后:</span>
-                <span>{{discount|currency('￥')}}</span>
-              </li>
-              <li>
-                <span>税后:</span>
-                <span>{{tax|currency('￥')}}</span>
-              </li>
+              
               <li class="order-total-price">
                 <span>总价:</span>
                 <span>{{orderTotal|currency('￥')}}</span>
@@ -143,9 +136,9 @@
   export default{
       data(){
           return{
-              shipping:100,
-              discount:200,
-              tax:400,
+              shipping:10,
+              // discount:10,
+              // tax:400,
               subTotal:0,
               orderTotal:0,
               cartList:[]
@@ -175,7 +168,8 @@
                   }
               });
               console.log(this.cartList);
-              this.orderTotal = this.subTotal+this.shipping-this.discount+this.tax;
+              // this.orderTotal = this.subTotal+this.shipping-this.discount+this.tax;
+              this.orderTotal = this.subTotal+this.shipping;
           });
         },
         // 点击支付，创建订单
