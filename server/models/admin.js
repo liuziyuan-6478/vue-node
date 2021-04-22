@@ -8,4 +8,4 @@ var adminSchema = new mongoose.Schema({
   usePushEach: true
   });
 
-module.exports = mongoose.model("Admin",adminSchema);
+module.exports = mongoose.model("Admin",adminSchema,'Admin');
