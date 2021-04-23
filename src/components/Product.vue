@@ -1,3 +1,4 @@
+// 商品管理
 <template>
 <div>
   <el-table
@@ -49,7 +50,7 @@
       </template>
     </el-table-column>
   </el-table>
-  <el-button type="primary" style="margin-left:925px;margin-top:30px;" @click="addProduct">新增产品<i class="el-icon-upload el-icon--right"></i></el-button>
+  <el-button type="primary" style="margin-left:900px;margin-top:30px;" @click="addProduct">新增产品<i class="el-icon-upload el-icon--right"></i></el-button>
   <!--编辑界面-->
       <el-dialog title="商品详情" :visible.sync="dialogFormVisible">
         <el-form :model="form">

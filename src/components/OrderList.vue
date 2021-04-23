@@ -23,11 +23,12 @@
     <el-table-column
       prop="orderTotal"
       label="订单总额"
-      width="200">
+      width="100">
     </el-table-column>
     <el-table-column
       prop="orderStatus"
-      label="订单状态">
+      label="订单状态"
+      width="100">
     </el-table-column>
     <el-table-column
       label="操作">

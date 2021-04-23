@@ -22,6 +22,7 @@
       padding: 0 10px;
       font-size: 14px;
       color: #a1a1a1;
+      margin-left: 15px;
   }
   .bread-wrap a{
     position: relative;
