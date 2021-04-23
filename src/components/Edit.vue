@@ -94,12 +94,12 @@
                    if(response.data.status=="1000"){
                     this.$message({
                        type: 'success',
-                       message: '删除成功!'
+                       message: '修改成功!'
                   });
                 }else{
                  this.$message({
                     type: 'error',
-                    message: '删除失败!'
+                    message: '修改失败!'
                  });
                 }
                  });

@@ -23,7 +23,7 @@
       </svg>
         <div class="navbar">
             <div class="navbar-left-container">
-              <h1><a class="logo" href="/" title="首页">涛涛商城</a></h1>
+              <h1><a class="logo" href="/" title="首页">乐购商城</a></h1>
               <!-- <a href="/" class="logo">
                 <img class="navbar-brand-logo" src="../assets/mi-logo.png">
               </a> -->
@@ -187,12 +187,18 @@
   }
   .logo {
     display: block;
-    background: url('../assets/logo.jpeg') no-repeat 50% 50%;
-    width:80px;
+    /* background: url('../assets/logo.jpeg') no-repeat 50% 50%; */
+    width:200px;
     height: 69px;
-    text-indent: -9999px;
+    /* text-indent: -9999px; */
+    font-style: italic;
+    font-size: 45px;
     text-align: left;
     overflow: hidden;
+    margin-left: 15px;
+  }
+  .logo:hover{
+    color: #FF6A00;
   }
   .header a, .footer a {
     color: #666;
