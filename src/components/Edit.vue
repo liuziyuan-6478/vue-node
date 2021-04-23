@@ -28,13 +28,7 @@
         if (!value) {
           return callback(new Error('旧密码不能为空'));
         }
-        setTimeout(() => {
-          if (!Number.isInteger(value)) {
-            callback(new Error('请输入数字'));
-          } else {
-              callback();
-          }
-        }, 1000);
+        callback()
       };
       var validatePass = (rule, value, callback) => {
         if (value === '') {

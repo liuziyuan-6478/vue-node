@@ -88,7 +88,7 @@ router.post("/Logout", function (req,res,next) {
 router.post('/searchPass', function(req,res,next){
      let {pass, oldPass} = req.body.data;
      var userName = req.cookies.userName;
-     Admin.find({userName}, function(err, admin){
+     Admin.findOne({userName}, function(err, admin){
         if(err) {
             res.send({
                 status: "10000",
@@ -96,6 +96,7 @@ router.post('/searchPass', function(req,res,next){
             })
             return
         }
+        
         if(!admin) {
             res.send({
                 status: "10002",
