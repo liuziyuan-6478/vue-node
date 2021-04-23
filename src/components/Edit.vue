@@ -80,15 +80,18 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
+              var age = this.ruleForm2.age.toString()
               var pass = this.ruleForm2.pass;
-              console.log(pass);
               this.$confirm('您确定要修改密码吗?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
                 type: 'warning'
                 }).then(() => {
                 axios.post('/adminUser/searchPass', {
-                    data:pass
+                    data: {
+                      oldPass: age,
+                      pass
+                    }
                   }).then((response) => {
                    console.log(response);
                    if(response.data.status=="1000"){
@@ -96,7 +99,13 @@
                        type: 'success',
                        message: '删除成功!'
                   });
-                }else{
+                }else if(response.data.status == "10003"){
+                    this.$message({
+                      type: 'error',
+                      message: '旧密码错误'
+                    })
+                }
+                else{
                  this.$message({
                     type: 'error',
                     message: '删除失败!'

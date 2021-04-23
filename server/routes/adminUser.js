@@ -86,33 +86,61 @@ router.post("/Logout", function (req,res,next) {
   });
 
 router.post('/searchPass', function(req,res,next){
-     var Pass = req.body.data;
+     let {pass, oldPass} = req.body.data;
      var userName = req.cookies.userName;
-     Admin.update({userName:userName},
-        {
-            $set:{
-                userPwd:Pass
-            },
-           }, function(err,doc){
-         if(err){
+     Admin.find({userName}, function(err, admin){
+        if(err) {
             res.send({
-                status:"10002",
-                mes:'失败'
-            });
-         }else{
-             if(doc){
+                status: "10000",
+                msg: err.message
+            })
+            return
+        }
+        if(!admin) {
+            res.send({
+                status: "10002",
+                msg: "用户不存在"
+            })
+            return 
+        }
+
+        const { userPwd } = admin;
+        if(userPwd != oldPass) {
+            res.send({
+                status: "10003",
+                msg: "旧密码错误!"
+            })
+            return
+        }
+        Admin.update({userName:userName},
+            {
+                $set:{
+                    userPwd: pass
+                },
+               }, function(err,doc){
+             if(err){
                 res.send({
-                    status:"1000",
-                    mes:'修改成功',
+                    status:"10002",
+                    mes:'失败'
                 });
              }else{
-                res.send({
-                    status:"1",
-                    mes:'查询失败'
-                });
+                 if(doc){
+                    res.send({
+                        status:"1000",
+                        mes:'修改成功',
+                    });
+                 }else{
+                    res.send({
+                        status:"1",
+                        mes:'查询失败'
+                    });
+                 }
              }
-         }
+         })
+
+
      })
+     
 });
 
 
