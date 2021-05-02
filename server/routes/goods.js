@@ -32,10 +32,13 @@ router.get("/list", function (req,res,next) {
   // 价格区间排序
   if(priceLevel!='all'){
     switch (priceLevel){
-      case '0':priceGt = 10;priceLte=100;break;
-      case '1':priceGt = 100;priceLte=500;break;
-      case '2':priceGt = 500;priceLte=1000;break;
-      case '3':priceGt = 1000;priceLte=5000;break;
+      case '0':priceGt = 0;priceLte=50;break;
+      case '1':priceGt = 50;priceLte=100;break;
+      case '2':priceGt = 100;priceLte=500;break;
+      case '3':priceGt = 500;priceLte=1000;break;
+      case '4':priceGt = 1000;priceLte=3000;break;
+      case '5':priceGt = 3000;priceLte=5000;break;
+      case '6':priceGt = 5000;priceLte=10000;break;
     }
     params = {
       salePrice:{

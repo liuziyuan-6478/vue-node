@@ -291,16 +291,6 @@ input:checked+label::after {
             this.isMdShow = true;
             this.userName = userName;
           },
-          // checkRadio(){
-          //   var radio = document.getElementsByName('item');
-          //   console.log(radio.checked);
-          //   if(radio.checked == true){
-          //     this.isDefult = true;
-          //   }else{
-          //     this.isDefult = false;
-          //   }
-          //   console.log(this.isDefult);
-          // },
           // 删除地址
           delAddress(){
             axios.post("/users/delAddress",{

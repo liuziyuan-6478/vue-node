@@ -1,4 +1,4 @@
-<!-- 支付成功页面 -->
+<!--  -->
 <style scoped>
 @charset "utf-8";
 body{
@@ -346,7 +346,7 @@ body{
                             </div>
                         </form>   
                     </div>
-                    <div class="login_con" v-show="num == 2">
+                    <!-- <div class="login_con" v-show="num == 2">
                         <div class="qr_code">
                                 <img src="../assets/qr.png" alt="">
                                 <p>请使用微信扫码登录<br>仅支持已绑定微信的账户进行快速登录</p>
@@ -358,16 +358,16 @@ body{
                         <a href="http://"><img src="../assets/wechat.svg" alt="微信登录"></a>
                         <a href="http://"><img src="../assets/weibo.svg" alt="微博登录"></a>
                         <a href=""><img src="../assets/qq.svg" alt="QQ登录"></a>
-                    </div>
+                    </div> -->
                     
                 </div>
-                <div class="login_ad l_float" id="AdImg">
+                <!-- <div class="login_ad l_float" id="AdImg">
                     <a href="">查看详情</a>
-                </div>
+                </div> -->
             </div>
-             <div class="footer">
+             <!-- <div class="footer">
                         <p>Copyright © 2019-2019  <a href="#"></a>涛涛购物网站</p>
-                    </div>
+                    </div> -->
 
             </div>
         </el-main>

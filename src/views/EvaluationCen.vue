@@ -1,4 +1,4 @@
-<!-- 支付成功页面 -->
+<!-- 商品评价页面 -->
 <style scoped>
 .checkout-goods-list{
     margin-bottom: 30px;

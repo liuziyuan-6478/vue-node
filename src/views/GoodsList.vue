@@ -81,9 +81,9 @@
     <!-- 顶部导航 -->
     <nav-header></nav-header>
     <!-- banner-->
-    <el-carousel :interval="4000" type="card" height="430px">
+    <el-carousel :interval="4000" type="card" height="390px">
     <el-carousel-item v-for="item in cart" :key="item.index">
-      <img  :src="item.src" />
+      <img  :src="item.src" width="100%" height="100%"/>
     </el-carousel-item>
   </el-carousel>
     <!-- 面包屑 -->
@@ -107,7 +107,7 @@
               <dt>筛选:</dt>
               <dd><a href="javascript:void(0)" @click="setPriceFilter('all')" v-bind:class="{'cur':priceChecked=='all'}">全部</a></dd>
               <dd v-for="(item,index) in priceFilter">
-                <a href="javascript:void(0)" @click="setPriceFilter(index)" v-bind:class="{'cur':priceChecked==index}">{{item.startPrice}} - {{item.endPrice}}</a>
+                <a href="javascript:void(0)" @click="setPriceFilter(index)" v-bind:class="{'cur':priceChecked==index}">{{item.category}}</a>
               </dd>
             </dl>
           </div>
@@ -185,7 +185,14 @@ export default{
         // 商品信息
         goodsList:[],
         goods:[],
-        cart:[{src:require("../assets/10.jpeg")},{src:require("../assets/2.jpeg")},{src:require("../assets/7.jpeg")},{src:require("../assets/8.jpeg")},{src:require("../assets/9.jpeg")},{src:require("../assets/5.jpeg")}],
+        cart:[
+          {src:require("../assets/swiper1.jpg")},
+          {src:require("../assets/swiper2.jpg")},
+          {src:require("../assets/swiper3.jpg")},
+          {src:require("../assets/swiper4.jpg")},
+          {src:require("../assets/swiper5.jpg")},
+          {src:require("../assets/swiper6.jpg")},
+          ],
         // 排序方式
         sortFlag:true,
         // 分页
@@ -196,23 +203,28 @@ export default{
         loading:false,
         mdShow:false,
         mdShowCart:false,
-        // 按价格过滤
+        // 分类
         priceFilter:[
           {
-            startPrice:'10',
-            endPrice:'100'
+            category:'休闲食品'
           },
           {
-            startPrice:'100',
-            endPrice:'500'
+            category:'图书教育'
           },
           {
-            startPrice:'500',
-            endPrice:'1000'
+            category:'男鞋女鞋'
           },
           {
-            startPrice:'1000',
-            endPrice:'5000'
+            category:'男装女装'
+          },
+          {
+            category:'手机数码'
+          },
+          {
+            category:'家用电器'
+          },
+          {
+            category:'电脑办公'
           }
         ],
         // 当前选中哪个价格过滤区间
@@ -319,6 +331,7 @@ export default{
       this.overLayFlag=false;
       this.mdShowCart = false;
     },
+    // 点击进入商品详情
      showDetail(index){
             this.checkIndex = index;
             this.goods = this.goodsList[this.checkIndex];

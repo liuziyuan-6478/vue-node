@@ -326,41 +326,7 @@ ul li {
           </div>
         </div>
 
-        <!-- Price count -->
-        <!-- <div class="price-count-wrap">
-          <div class="price-count">
-            <ul>
-              <li>
-                <span>商品价格:</span>
-                <span>{{subTotal|currency('￥')}}</span>
-              </li>
-              <li>
-                <span>配送费:</span>
-                <span>{{shipping|currency('￥')}}</span>
-              </li>
-              <li>
-                <span>折后:</span>
-                <span>{{discount|currency('￥')}}</span>
-              </li>
-              <li>
-                <span>税后:</span>
-                <span>{{tax|currency('￥')}}</span>
-              </li>
-              <li class="order-total-price">
-                <span>总价:</span>
-                <span>{{orderTotal|currency('￥')}}</span>
-              </li>
-            </ul>
-          </div>
-        </div> -->
-
         <div class="order-foot-wrap">
-          <!-- <div class="prev-btn-wrap">
-            <router-link class="btn btn--m" to="/address">上一步</router-link>
-          </div>
-          <div class="next-btn-wrap">
-            <button class="btn btn--m btn--red" @click="">前往付款</button>
-          </div> -->
         </div>
       </div>
     </div>

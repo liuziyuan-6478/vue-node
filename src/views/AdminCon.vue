@@ -37,7 +37,7 @@
         <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="toindex">回到首页</el-dropdown-item>
           <el-dropdown-item @click.native="logout">登出</el-dropdown-item>
-          <el-dropdown-item disabled>新增</el-dropdown-item>
+          <!-- <el-dropdown-item disabled>新增</el-dropdown-item> -->
         </el-dropdown-menu>
       </el-dropdown>
      <span class="navbar-link" v-text="nickName" v-if="Token"></span>
@@ -90,6 +90,9 @@ import { mapState } from 'vuex'
     },
     computed:{
           ...mapState(['nickName','Token','cartCount'])
+          // nickname(){
+          //   return this.$store.state.nickname
+          // }
         },
     methods: {
         toindex(){

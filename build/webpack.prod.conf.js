@@ -34,18 +34,18 @@ var webpackConfig = merge(baseWebpackConfig, {
         warnings: false
       },
       sourceMap: true
-    }),
+    }),//压缩js
     // extract css into its own file
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css')
-    }),
+    }),// 抽离css
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
         safe: true
       }
-    }),
+    }),// 压缩css
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
@@ -62,7 +62,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
-    }),
+    }),// 生成html
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
